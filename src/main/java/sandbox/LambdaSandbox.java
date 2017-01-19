@@ -24,18 +24,28 @@ public class LambdaSandbox {
     public static String PRED_TEST_STRING = "predicate test string";
 
     public static void main(String[] args){
-        System.out.println("This is LambdaTest");
 
-        //int i = biFunctionStringLength("the first string", "the second string");
 
-        // We can also create a method that takes a BiFunction as the first parameter.
-        //int biFunctioncalculation = biFunctionCalculator((a, b) -> (a * b), 3,  5);
+        // We created a method that takes a BiFunction as the first parameter.
+        // This gives us the apply() method which runs the method passed to the
+        // Lambda with the given parameters, a & b.
+        int biFunctioncalculator = biFunctionCalculator((a, b) -> (a * b), 3,  5);
+        System.out.println("biFunctionCalculator" + biFunctioncalculator);
 
+        /*
+        We created a method that takes a {@code Predicate} as the first parameter.
+        This {@code Predicate} is created with a Lambda and allows us to to call the test()
+         method. The method we create in the Lambda will be executed in the test() method of the
+         {@code Predicate}.
+         */
         boolean lambdaBoolean = checkEqualityFromPredicate((s) ->
                 s.equals(LambdaSandbox.PRED_TEST_STRING), "predicate test string");
         System.out.println( "lambdaBoolean: " + lambdaBoolean);
 
-        // Without Lambdas, we can create a class that implements the Predicate interface
+        /*
+        We also created a class that implements the {@code Predicate} interface.
+        This is how the same functionality would be achieved without Lambdas.
+         */
         Predicate<String> nonLambdaPredicate = new NonLambdaPredicate<>();
         System.out.println("nonLambdaPredicate: " + nonLambdaPredicate.test("predicate test string"));
 
@@ -43,7 +53,7 @@ public class LambdaSandbox {
         boolean predBoolean = checkEqualityFromPredicate(new NonLambdaPredicate<>(), "predicate test string");
         System.out.println("predBoolean: " + predBoolean);
 
-        // Without Lambdas, we can create an anonymous Predicate object
+        // Without Lambdas, we can also create an anonymous Predicate object
         @SuppressWarnings("Convert2Lambda") boolean anonBoolean = checkEqualityFromPredicate(
                 new Predicate<String>() {
                     @Override

@@ -43,6 +43,9 @@ control Space
 Select line from cursor:
 Shift + command + arrow
 
+Select Line:
+command + Arrow then command + Shift + Opposite Arrow
+
 Delete Line
 command Backspace
 
@@ -70,3 +73,13 @@ control + shift + b
 
 Optimize Imports:
 control + option + O
+
+Warning Dropdown:
+Options: Option + Enter
+
+Search Everywhere:
+Shift Shift
+
+Suppress Warnings:
+Option + Enter > Submenu related to the error message
+I.e., Error = Field Not Used -  Safe Delete > Suppress for Field

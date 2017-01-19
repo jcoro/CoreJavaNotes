@@ -17,15 +17,17 @@ public class LambdaSandboxTest {
 
     public static class BiFunctionTest {
         @Test
-        public void testBiFunctionStringLength(){
+        public void testBiFunctionStringLength() {
             assertEquals(-1, LambdaSandbox.biFunctionStringLength("the first", "the second"));
         }
 
         @Test
         public void testBiFunctionCalculatorReturns15() {
-            assertEquals(15, LambdaSandbox.biFunctionCalculator((a, b) -> (a * b), 3,  5));
+            assertEquals(15, LambdaSandbox.biFunctionCalculator((a, b) -> (a * b), 3, 5));
         }
+    }
 
+    public static class PredicateTest {
         @Test
         public void testCheckEqualityFromPredicate(){
             assertTrue(LambdaSandbox.checkEqualityFromPredicate((s) ->
