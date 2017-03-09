@@ -27,6 +27,13 @@ dependencies {
 
 ## Collections - Notes
 
+### What does it mean to say that the Collections framework separates interfaces and
+implementations?
+
+### Explain Load Factor
+
+### Explain some applications of views
+
 ### Describe some best use cases for iterators and for loops
 
 We know that:

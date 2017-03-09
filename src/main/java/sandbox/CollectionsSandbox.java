@@ -1,13 +1,17 @@
 package sandbox;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.NavigableSet;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * A class used to experiment with Collections
@@ -18,9 +22,10 @@ public class CollectionsSandbox {
 
     public static void main(String[] args){
         //studyLinkedList();
-        studyLinkedList2();
+        //studyLinkedList2();
         //studySets();
         //studySets2("some some strings to be used to test test the method");
+        treeSetTest();
     }
 
     /**
@@ -136,5 +141,19 @@ public class CollectionsSandbox {
         System.out.println(words.size() + " unique words");
         return words.size();
 
+    }
+
+    public static void treeSetTest() {
+        SortedSet<Item> parts = new TreeSet<>();
+        parts.add(new Item("Toaster", 1234));
+        parts.add(new Item("Widget", 4562));
+        parts.add(new Item("Modem", 9912));
+        System.out.println(parts);
+
+        NavigableSet<Item> sortByDescription = new TreeSet<>(
+                Comparator.comparing(Item::getDescription));
+
+        sortByDescription.addAll(parts);
+        System.out.println(sortByDescription);
     }
 }
