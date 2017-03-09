@@ -20,5 +20,16 @@ public class TwoSumTest {
         assertArrayEquals(new int[] {2, 3}, TwoSum.twoSum(new int[] {11, 15, 2, 7}, 9));
     }
 
+    @Test
+    public void testTwoSumMap1(){
+        assertArrayEquals(new int[] {0, 1}, TwoSum.twoSumMap(new int[] {2, 7, 11, 15}, 9));
+    }
+
+    @Test
+    public void testTwoSumMap2(){
+        assertArrayEquals(new int[] {2, 3}, TwoSum.twoSumMap(new int[] {11, 15, 2, 7}, 9));
+    }
+
+
 
 }

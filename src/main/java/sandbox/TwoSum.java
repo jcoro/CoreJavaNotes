@@ -1,7 +1,8 @@
 package sandbox;
 
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Given an array of integers, return indices of the two numbers
@@ -14,32 +15,32 @@ import java.util.Arrays;
  * return [0, 1].
  */
 
-/**
- * The code below uses the java break statement to break out of the NESTED loop
- * This ensures that once a match is found the answer array is returned.
- */
-
 
 
 public class TwoSum {
+
     public static int[] twoSum(int[] nums, int target) {
-        int[] ans = new int[2];
-        read_data:
         for( int i = 0; i < nums.length; i++) {
             for (int j = 0; j < nums.length; j++){
                 if( i != j && nums[i] + nums[j] == target ) {
-                    ans[0] = i;
-                    ans[1] = j;
-                    System.out.println(Arrays.toString(ans));
-                    break read_data;
+                    return new int[] { i, j };
                 }
             }
-        if (ans[0] + ans[1] == target) break;
         }
-    return ans;
+        throw new IllegalArgumentException("No solution");
     }
 
-    public static void main(String[] args){
-        twoSum(new int[] {2, 7, 11, 15}, 9);
+    public static int[] twoSumMap(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[] { map.get(complement), i };
+            }
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No solution");
     }
+
+
 }
